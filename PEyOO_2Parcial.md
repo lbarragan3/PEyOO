@@ -321,9 +321,8 @@ class Vehicle {
 }
 ```
 #### **_Archivo principal: 'main.dart'_**
-```
+```dart
 import 'vehiculo.dart';
-
 void main(List<String> args) {
   Vehicle v1 = Vehicle(
     'Toyota',
@@ -678,4 +677,183 @@ Breed: Azteca
 Quantity: 50
 Color de crin: Blanco
 ```
+
+## **_Clase 17 de mayo 2023:_**
+```dart
+void main(List<String> args) {
+  final vehiculo = Vehiculo('Rojo', 100);
+  vehiculo.showVehiculo();
+  print('Maxima velocidad: ${vehiculo.maxVelocidad()}');
+
+  final Carro carro = Carro('Azul', 200, 'Toyota');
+  carro.showVehiculo();
+  print('Maxima velocidad: ${carro.maxVelocidad()}');
+
+  final Carro carroTipo = Carro.tipo('Azul', 200, 'Toyota', 'Sedan');
+  carroTipo.showTipo();
+  print('---------');
+  carroTipo.showTipo2();
+  print('Maxima velocidad: ${carroTipo.maxVelocidad()}');
+}
+
+
+class Vehiculo {
+  String? _color;
+  int? _velocidad;
+
+  Vehiculo(this._color, this._velocidad){
+    print('Constructor padre Vehiculo');
+  }
+
+  set color(String? color) => this._color = color;
+  set velocidad(int? velocidad) => this._velocidad = velocidad;
+
+  String? get color => _color;
+  int? get velocidad => _velocidad;
+
+  int maxVelocidad() => _velocidad! *2;
+
+  void showVehiculo(){
+    print('Color: $_color');
+    print('Velocidad: $_velocidad');
+  }
+
+}
+
+class Carro extends Vehiculo{
+  String? _marca;
+  String? _tipo;
+
+  Carro(super._color, super._velocidad, this._marca) {
+    print('Constructor hijo Carro');
+  }
+
+    Carro.tipo(super._color, super._velocidad, this._marca, this._tipo) {
+    print('Constructor nombrado tipo hijo Carro');
+  }
+
+  @override 
+  void showVehiculo() {
+    super.showVehiculo();
+    print('Marca: $_marca');
+  }
+
+  void showTipo() {
+    super.showVehiculo();
+    print('Marca: $_marca');
+    print('Tipo: $_tipo');
+  }
+
+  void showTipo2() {
+    this.showVehiculo();
+    print('Tipo: $_tipo');
+  }
+}
+```
+
+#### **_Salida:_**
+```
+Maxima velocidad: 200
+Constructor padre Vehiculo
+Constructor hijo Carro
+Color: Azul
+Velocidad: 200
+Marca: Toyota
+Maxima velocidad: 400
+Constructor padre Vehiculo
+Constructor nombrado tipo hijo Carro
+Color: Azul
+Velocidad: 200
+Marca: Toyota
+Tipo: Sedan
+---------
+Color: Azul
+Velocidad: 200
+Marca: Toyota
+Tipo: Sedan
+Maxima velocidad: 400
+```
+
+## **_Clase 18 de mayo 2023:_**
+**_Interfaces_**. Las _interfaces_ son los métodos definidos que existen para un objetos. En Dart no existe una sintaxis para declarar interfaces, pero usamos la palabra reservada **_extends_**.  
+En el siguiente ejercicio crearemos una clase llamada _'Control Remoto'_ con las características subir y bajar volumen, después haremos tres diferentes clases, una de Televisión, otra para un Ipod y otra para un Radio. Estás clases usarán la interfaz de la clase _Control Remoto_.
+
+#### **_Código:_**
+```dart
+void main(List<String> args) {
+  ControlRemoto control = ControlRemoto();
+  control.subirVolumen();
+  control.bajarVolumen();
+
+  Television tv = Television();
+  tv.subirVolumen();
+  tv.bajarVolumen();
+
+  Ipod ipod = Ipod();
+  ipod.subirVolumen();
+  ipod.bajarVolumen();
+
+  Radio radio = Radio();
+  radio.subirVolumen();
+  radio.bajarVolumen();
+}
+
+
+class ControlRemoto {
+  void subirVolumen() {
+    print('Subir Volumen');
+  }
+
+  void bajarVolumen() {
+    print('Bajar Volumen');
+  }
+}
+
+class Television implements ControlRemoto {
+  @override
+  void subirVolumen() {
+    print('Subir Volumen de la TV');
+  }
+
+  void bajarVolumen() {
+    print('Bajar Volumen de la TV');
+  }
+}
+
+class Ipod implements ControlRemoto {
+  @override
+  void subirVolumen() {
+    print('Subir Volumen del Ipod');
+  }
+
+  void bajarVolumen() {
+    print('Bajar Volumen del Ipod');
+  }
+}
+
+class Radio implements ControlRemoto {
+  @override
+  void subirVolumen() {
+    print('Subir Volumen de la Radio');
+  }
+
+  void bajarVolumen() {
+    print('Bajar Volumen de la Radio');
+  }
+}
+```
+#### **Salida:_**
+```
+Subir Volumen
+Bajar Volumen
+Subir Volumen de la TV
+Bajar Volumen de la TV
+Subir Volumen del Ipod
+Bajar Volumen del Ipod
+Subir Volumen de la Radio
+Bajar Volumen de la Radio
+```
+
+
+
 
