@@ -361,10 +361,321 @@ void main(List<String> args) {
 ```
 
 ## Clase 03 de mayo 2023:
+#### **_Ejercicio 1:_**
+Este ejercicio se realizó en varias ocaciones, con la finalidad de poder mejorar el código.
+#### **_Código 1:_**
+```dart
+void main(List<String> args) {
+  Mueble m1 = Mueble();
+  print(m1.counter);
+  print(Mueble.counterStatic);
+  Mueble m2 = Mueble();
+  print(m2.counter);
+  print(Mueble.counterStatic);
+}
+class Mueble {
+  //propiedad de instancia
+  int counter = 0;
+
+  //propiedad de clase
+  static int counterStatic = 0;
+  Mueble() {
+    counter++;
+    counterStatic++;
+  }
+  //Método de instancia
+}
+```
+#### **_Salida:_**
+```
+1
+1
+1
+2
+```
+
+#### **_Código 2:_**
+```dart
+void main(List<String> args) {
+  Mueble m1 = Mueble();
+  print("Propiedad de instancia m1: ${m1.counter}");
+  print("Propiedad de clase Mueble: ${Mueble.counterStatic}");
+  print("-" * 28);
+  Mueble m2 = Mueble();
+  print("Propiedad de instancia m2: ${m2.counter}");
+  print("Propiedad de clase Mueble: ${Mueble.counterStatic}");
+}
+class Mueble {
+  //propiedad de instancia
+  int counter = 0;
+
+  //propiedad de clase
+  static int counterStatic = 0;
+  Mueble() {
+    counter++;
+    counterStatic++;
+  }
+  //Método de instancia
+  void showCounter() {
+    print("Propiedad de instancia: $counter");
+  }
+
+  //Método de clase
+  static void showCounterStatic() {
+    print("Propiedad de clase: $counterStatic");
+  }
+}
+```
+#### **_Salida:_**
+```
+Propiedad de instancia m1: 1
+Propiedad de clase Mueble: 1
+----------------------------
+Propiedad de instancia m2: 1
+Propiedad de clase Mueble: 2
+```
+#### **_Código 3:_**
+```dart
+void main(List<String> args) {
+  Mueble m1 = Mueble();
+  m1.showCounter();
+  Mueble.showCounterStatic();
+  print("-" * 28);
+  Mueble m2 = Mueble();
+  m2.showCounter();
+  Mueble.showCounterStatic();
+}
+class Mueble {
+
+  //propiedad de instancia
+  int counter = 0;
+
+  //propiedad de clase
+  static int counterStatic = 0;
+  Mueble() {
+    counter++;
+    counterStatic++;
+  }
+  //Método de instancia
+  void showCounter() {
+    print("Propiedad de instancia: $counter");
+  }
+
+  //Método de clase
+  static void showCounterStatic() {
+    print("Propiedad de clase: $counterStatic");
+  }
+}
+```
+#### **_Salida:_**
+```
+Propiedad de instancia m1: 1
+Propiedad de clase Mueble: 1
+----------------------------
+Propiedad de instancia m2: 1
+Propiedad de clase Mueble: 2
+```  
+#### **_Ejercicio 2_**
+Crear la clase animal con la propiedad tipo de animal y cantidad. Crear un método de instancia que muestre el tipo de animal y la cantidad. Crear un metodo de clase que muestre la cantidad de tipos de animales de la granja. Crear instancias de la clase animal y mostrar la cantidad de tipos de animales de la granja. ¿Cuántos animales hay en la granja?
+#### **_Código:_**
+```dart
+void main(List<String> args) {
+  var animales = [
+    Animal('vaca', 10),
+    Animal('cerdo', 20),
+    Animal('pollo', 50),
+  ];
+  
+  Animal.mostrarCantidadTipos(animales);
+  
+  animales.forEach((animal) => animal.mostrar());
+  
+  var cantidadAnimales = animales.fold(0, (total, animal) => total + animal.cantidad);
+  print('Hay un total de $cantidadAnimales animales en la granja.');
+}
+
+class Animal {
+  String tipo;
+  int cantidad;
+  
+  Animal(this.tipo, this.cantidad);
+  
+  void mostrar() {
+    print('Hay $cantidad $tipo en la granja.');
+  }
+  
+  static void mostrarCantidadTipos(List<Animal> animales) {
+    var tipos = <String>{};
+    animales.forEach((animal) => tipos.add(animal.tipo));
+    print('Hay ${tipos.length} tipos de animales en la granja.');
+  }
+}
+```  
+
+#### **_Salida:_**
+```
+Hay 3 tipos de animales en la granja.
+Hay 10 vaca en la granja.
+Hay 20 cerdo en la granja.
+Hay 50 pollo en la granja.
+Hay un total de 80 animales en la granja.
+```
+## Clase 04 de mayo 2023:
+En esta clase aprendimos sobre las herencias en Dart. Las _herencias_ no son nada más que apoyo para poder reutilizar una parte del código que ya hemos realizado. En Dart se usa la palabra reservada **_extends_** para heredar una clase.  
+
+En esta actividad se usaran un total de cinco archivos distintos, uno es para nuesto archivo _main_ que nos ayudará a poder ejecutar nuestro programa, los otros cuatro los usaremos para las clases los archivos llevaran los nombres _'animal.dart'_, _'caballo.dart'_, _'pato.dart'_, _'vaca.dart'_. El archivo _animal.dart_ será nuestra clase padre y heredaremos las demás clases con esta.
+
+#### **_Archivo de clase: 'animal.dart':_**
+```dart
+class Animal {
+  String? _breed;
+  int? _quantity;
+
+  Animal(this._breed, this._quantity);
+
+  set breed(String? breed) => _breed = breed;
+  set quantity(int? quantity) => _quantity = quantity;
+
+  void showProperties() {
+    print('Breed: $_breed');
+    print('Quantity: $_quantity');
+  }
+}
+```
+#### **_Archivo de clase: 'caballo.dart':_**
+```dart
+import 'animal.dart';
+
+class Caballo extends Animal {
+  String? _color_crin;
+  
+  Caballo(super._breed, super._quantity, this._color_crin);
+
+  int get quantity => null;
+  set _quantity (int quantity) {}
+
+    @override
+  void showProperties() {
+    super.showProperties();
+    print('Color de crin: $_color_crin');
+  }
+ } 
+```
+#### **_Archivo de clase: 'pato.dart':_**
+```dart
+import 'animal.dart';
+
+class Pato extends Animal {
+  String? _tipo_pico;
+
+  set _quantity(int quantity) {}
+
+  @override
+  void showProperties() {
+    super.showProperties();
+    print('Tipo de pico: $_tipo_pico');
+  }
+
+  Pato(super._breed, super._quantity, this._tipo_pico);
+} 
+```
+#### **_Archivo de clase: 'vaca.dart':_**
+```dart
+import 'animal.dart';
+class Vaca extends Animal {
+  String? _color_manchas;
+
+  Vaca(super._breed, super._quantity, this._color_manchas);
+
+  @override
+  void showProperties() {
+    super.showProperties();
+    print('Color de manchas: $_color_manchas');
+  }
+}
+```
 
 
+Nuestro archivo _main_ lo modificamos un par de veces, estos son los distintos códigos. Las mejoras fueron para poder hacer mejor uso de la optimización del código, tener un programa más limpio.
 
+#### **_archivo: 'main.dart' (Código 1)_**
+```dart
+import 'pato.dart'; import 'animal.dart'; import 'caballo.dart'; import 'vaca.dart';
 
+void main(List<String> args) {
+  Pato pato1 = Pato();
+  pato1.breed = 'Pekines';
+  pato1.quantity = 10;
+  pato1.tipo_pico = 'curvo';
+  pato1.showProperties();
+  print("-"*20);
+  Animal a1 = Animal();
+  a1.breed = 'Animal';
+  a1.quantity = 100;
+  a1.showProperties();
+  print("-"*20);
+  Caballo c1 = Caballo();
+  c1.breed = 'Azteca';
+  c1.quantity = 50;
+  c1.tipo_melena = 'Blanca';
+  c1.showProperties();
+  print("-"*20);
+  Vaca v1 = Vaca();
+  v1.breed = 'Holstein';
+  v1.quantity = 30;
+  v1.color_manchas = 'negras';
+  v1.showProperties();
+  print("-"*20);
+}
+```
+#### **_Salida:_**
+```
+Pato breed: Pekines
+Tipo de pico: Curvo
+Cantidad: 10
+____________________
+Caballo breed: Azteca
+Color de melena: Blanca
+Cantidad: 50
+____________________
+Vaca breed: Holstein
+Color de manchas: Negras
+Cantidad: 30
+____________________
+```
+#### **_archivo: 'main.dart' (Código 1)_**
+```dart
+import 'pato.dart'; import 'animal.dart'; import 'caballo.dart'; import 'vaca.dart';
 
-
+void main(List<String> args) {
+  Pato pato1 = Pato('Pekines', 30, 'Curvo');
+  pato1.showProperties();
+  pato1.quantity = 60;
+  print("-"*20);
+  Animal a1 = Animal('Animal', 100);
+  a1.showProperties();
+  print("-"*20);
+  Caballo c1 = Caballo('Azteca', 50, 'Blanco');
+  c1.showProperties();
+  c1.quantity = 100;
+  print(c1.quantity);
+  print("-"*20);
+  Vaca v1 = Vaca('Holstein', 20, 'Cafe');
+  v1.showProperties();
+  print("-"*20);
+} 
+```
+#### **_Salida:_**
+```
+Breed: Pekines
+Quantity: 30
+Tipo de pico: Curvo
+--------------------
+Breed: Animal
+Quantity: 100
+--------------------
+Breed: Azteca
+Quantity: 50
+Color de crin: Blanco
+```
 
