@@ -1,5 +1,4 @@
-# **_Programación Estructurada y Orientada a Objetos (Segunda Parcial)_**  
-
+<h1 align="center">Programación Estructurada y Orientada a Objetos en Dart (Segunda Parcial)</h1>
 
 ## **_Clases_**
 Una **_clase_** es un elemento característico de la Programación Orientada a Objetos que funciona como una plantilla donde se definen las características
