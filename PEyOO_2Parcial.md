@@ -65,6 +65,10 @@ Edad: 33
 Nombre: Pedro
 Edad: 82
 ```
+#### **Diagrama de clase:**
+
+![código1](https://github.com/lbarragan3/PEyOO_2Parcial/assets/113486125/568332b4-a87c-4296-8659-7efeeac511c7)
+
 
 ### Clase 19 de abril 2023 (también ejemplos anteriores):
 Crear una clase animal que tenga dos propiedades, nombre y sonido
@@ -81,7 +85,7 @@ void main(List<String> args) {
   Pato.sonido = "Cuac";
 }
 
-class animal{
+class Animal{
   String nombre = "";
   String sonido = "";
 }
@@ -91,6 +95,9 @@ void reporte(animal a ) {
   print("Sonido: ${a.sonido}");
 }
 ```  
+#### **Diagrama de clase:**
+
+![código2](https://github.com/lbarragan3/PEyOO_2Parcial/assets/113486125/066409eb-48a9-46e0-9163-71391b16f25d)
 
 
 ## Clase 20 de abril 2023:
@@ -140,6 +147,10 @@ Constructor de Animal
 Pato
 cuac
 ```
+#### **Diagrama de clase:**
+
+![código2](https://github.com/lbarragan3/PEyOO_2Parcial/assets/113486125/24eba9c3-2a8b-4b3f-860f-0d24308b748f)
+
 
 ## Clase 26 de abril 2023:  
   
@@ -193,6 +204,10 @@ Pato
 Cuac
 --------------------
 ```
+#### **Diagrama de clase:**
+
+![código2](https://github.com/lbarragan3/PEyOO_2Parcial/assets/113486125/0dbd5485-2fa7-41dc-9ac1-a4ab449adf27)
+
 
 #### **_Ejercicio 2_**
 En este ejercicio veremos los **_Métodos._** Los _métodos_ son funciones que nos ayudan a poder manipular los métodos de las clases.
@@ -227,6 +242,10 @@ void main(List<String> args) {
 ```
 La edad de Luis es 18.
 ```
+#### **Diagrama de clase:**
+
+![código3](https://github.com/lbarragan3/PEyOO_2Parcial/assets/113486125/4335eb42-eba1-4763-9bbc-87c4a735b0aa)
+
 
 ## Clase 26 de abril 2023:
 En esta clase aprendimos dos funciones nuevas: **_los setters y getters_**. Los _setters_ nos ayudan a fijar el valor de un atributo, los _getters_ nos ayudan a acceder al valor del atributo. Estas funciones se usan para poder obtener y cambiar valores fuera de la clase.
@@ -280,6 +299,10 @@ y altura ${f1.altura} es ${f1.getArea()}
 El area del rectangulo con base 15
 y altura 10 es 150
 ```  
+#### **Diagrama de clase:**
+
+![código4](https://github.com/lbarragan3/PEyOO_2Parcial/assets/113486125/968fd30d-7b6b-49c9-a46e-889c9f68e06e)
+
 
 #### **_Ejercicio 2_**
 Crearemos un archivo llamado **_vehiculo.dart_** el cual tendra las características de 'marca', 'nombre', 'color' y 'transmisión'. También lleva los _setters_ y _getters_. En un segundo archivo haremos nuestro _main_ el cual nos ayudará a poder usar nuestro código.
@@ -358,6 +381,10 @@ void main(List<String> args) {
       Color: Azul
       Transmision: Manual
 ```
+#### **Diagrama de clase:**
+
+![código5](https://github.com/lbarragan3/PEyOO_2Parcial/assets/113486125/d46f3cad-42ce-4060-ac8f-aeebb8c591f9)
+
 
 ## Clase 03 de mayo 2023:
 #### **_Ejercicio 1:_**
@@ -474,6 +501,11 @@ Propiedad de clase Mueble: 1
 Propiedad de instancia m2: 1
 Propiedad de clase Mueble: 2
 ```  
+#### **Diagrama de clase:**
+
+![código6](https://github.com/lbarragan3/PEyOO_2Parcial/assets/113486125/834b5bcf-678a-406a-b8e5-a16fc8db581f)
+
+
 #### **_Ejercicio 2_**
 Crear la clase animal con la propiedad tipo de animal y cantidad. Crear un método de instancia que muestre el tipo de animal y la cantidad. Crear un metodo de clase que muestre la cantidad de tipos de animales de la granja. Crear instancias de la clase animal y mostrar la cantidad de tipos de animales de la granja. ¿Cuántos animales hay en la granja?
 #### **_Código:_**
@@ -519,6 +551,11 @@ Hay 20 cerdo en la granja.
 Hay 50 pollo en la granja.
 Hay un total de 80 animales en la granja.
 ```
+#### **Diagrama de clase:**
+
+![código7](https://github.com/lbarragan3/PEyOO_2Parcial/assets/113486125/764d18c3-71e8-4fd2-a180-6165dcb5d3be)
+
+
 ## Clase 04 de mayo 2023:
 En esta clase aprendimos sobre las herencias en Dart. Las _herencias_ no son nada más que apoyo para poder reutilizar una parte del código que ya hemos realizado. En Dart se usa la palabra reservada **_extends_** para heredar una clase.  
 
@@ -677,6 +714,10 @@ Breed: Azteca
 Quantity: 50
 Color de crin: Blanco
 ```
+#### **Diagrama de clase:**
+
+![código8](https://github.com/lbarragan3/PEyOO_2Parcial/assets/113486125/dbe54c82-1b60-4d75-ac4c-d316f3a76626)
+
 
 ## **_Clase 17 de mayo 2023:_**
 ```dart
@@ -773,6 +814,10 @@ Marca: Toyota
 Tipo: Sedan
 Maxima velocidad: 400
 ```
+#### **Diagrama de clase:**
+![código9](https://github.com/lbarragan3/PEyOO_2Parcial/assets/113486125/0bd7537e-05ef-4520-909f-ba6fcc113205)
+
+
 
 ## **_Clase 18 de mayo 2023:_**
 **_Interfaces_**. Las _interfaces_ son los métodos definidos que existen para un objetos. En Dart no existe una sintaxis para declarar interfaces, pero usamos la palabra reservada **_extends_**.  
@@ -853,7 +898,8 @@ Bajar Volumen del Ipod
 Subir Volumen de la Radio
 Bajar Volumen de la Radio
 ```
+#### **Diagrama de clase:**
 
-
+![código10](https://github.com/lbarragan3/PEyOO_2Parcial/assets/113486125/a436fa36-8956-498d-9f7b-954ac5358adc)
 
 
