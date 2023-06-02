@@ -1,6 +1,7 @@
 <h1 align="center">PEyOO Proyecto (Segunda Parcial)</h1>
-Crear un directorio de profesores y que contenga los datos de personas y negocios. Debe tener llenado automatico de la DB in memory las opciones CRUD, donde:C: Create, crear nuevos registros, R: Read, leer y presentar los registros de manera individual, por alumnos y/o profesores, U: Update, actualizar registros, D: Delete, eliminar registros.  
+Crear un directorio de profesores y que contenga los datos de personas y negocios. Debe tener llenado automatico de la DB in memory las opciones CRUD, donde:C: Create, crear nuevos registros, R: Read, leer y presentar los registros de manera individual, por alumnos y/o profesores, U: Update, actualizar registros, D: Delete, eliminar registros. 
 
+```dart
 import 'dart:io';
  import 'dart:async';
 void main(List<String> args) {
@@ -227,3 +228,4 @@ class Directorio {
     }
   }
 }
+```
